@@ -175,7 +175,7 @@ header {
 header a {
     font-weight: 600;
     color: var(--white);
-    transtion: var(--transition-default);
+    transition: var(--transition-default);
 }
 
 header a:hover {
