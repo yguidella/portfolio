@@ -9,35 +9,35 @@
 }
 
 :root {
-    /* Paleta de Cores - Purple*/
+    /* 1. PALETA DE CORES */
     --purple-50: #f4eaff;
     --purple-100: #e9dcfa;
     --purple-200: #cdb3f0;
-    --purple-300: #bc13fe; 
+    --purple-300: #b186e5;
     --purple-400: #9460db;
-    --purple-500: #8c32fa;
-    --purple-600: #5b2ca0;
-    --purple-700: #4c2177;
-    --purple-800: #441f88;
-    --purple-900: #1a0233; 
+    --purple-500: #862BAB; /* O Roxo Principal das suas abas */
+    --purple-600: #6b36c8;
+    --purple-700: #5b2ca0;
+    --purple-800: #4c2177;
+    --purple-900: #211A1D; /* Roxo ultra escuro */
 
-    /* Cores Neutras*/
-    --gray-200: #e8e8e8;
-    --gray-400: #505861;
-    --black: #050505;
-    --white: #FAF7FF;
-    --neon-green: #39ff14; 
-    --neon-green-active: #2bff00;
+    /* 2. CORES NEUTRAS */
+    --black: #000501;      /* O fundo preto que você quer */
+    --white: #FAF7FF;      /* Escrita em Branco */
+    --silver: #C2C1C2;     /* O Silver bonito para textos secundários */
+    --gray-400: #505861;   /* Cinza auxiliar */
 
-    /* Cores de Estado */
-    --error: #e63946;
+    /* 3. CORES DE INTERAÇÃO */
+    --neon-green: #38A524;        /* Para ícones e detalhes */
+    --neon-green-active: #2bff00; /* O brilho quando alguém clicar */
+    --error: #e63946;             /* Cor de erro padrão */
 
-    /* Sombras */
+    /* 4. SOMBRAS E BRILHOS */
     --shadow-sm: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 0.25rem 0.75rem rgba(188, 19, 254, 0.3); /* Brilho Roxo */
-    --shadow-lg: 0 0.5rem 1.5rem rgba(57, 255, 20, 0.2);   /* Brilho Verde */
+    --shadow-md: 0 0.25rem 0.75rem rgba(134, 43, 171, 0.3); /* Brilho Roxo */
+    --shadow-lg: 0 0.5rem 1.5rem rgba(56, 165, 36, 0.2);   /* Brilho Verde */
 
-    /* Espaçamentos */
+    /* 5. ESPAÇAMENTOS */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -45,7 +45,7 @@
     --spacing-xl: 3rem;
     --spacing-2xl: 4rem;
 
-    /* Tamanhos de Fonte*/
+    /* 6. TAMANHOS DE FONTE */
     --text-sm: 0.75rem;
     --text-base: 1rem;
     --text-lg: 1.25rem;
@@ -53,13 +53,36 @@
     --text-2xl: 2rem;
     --text-3xl: 2.5rem;
 
-    /* Border Radius */
+    /* 7. BORDAS E ANIMAÇÃO */
     --radius-sm: 0.25rem;
     --radius-md: 0.5rem;
     --radius-lg: 1rem;
     --radius-xl: 2rem;
-    --radius-full: 50%;
-
-    /* Animação Padrão */
+    --radius-full: 9999px;
     --transition-default: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+    /* Identidade Visual */
+    background-color: var(--black); 
+    background-image: linear-gradient(rgba(0, 5, 1, 0.8), rgba(33, 26, 29, 0.7)), url('../img/background_portfolio_1.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    line-height: 1.6;
+    color: var(--white); /* Texto principal em branco */
+}
+
+main {
+    flex: 1;
 }
