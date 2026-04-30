@@ -86,3 +86,77 @@ body {
 main {
     flex: 1;
 }
+
+.section-container {
+    max-width: 70rem; /* Largura máxima para não esticar o conteúdo */
+    margin: 0 auto;   /* Centraliza o conteúdo na tela */
+    padding: var(--spacing-xl) var(--spacing-md); /* Respiro vertical e horizontal */
+    scroll-margin-top: 6rem; /* Distância para o menu fixo não cobrir o título */
+}
+
+/* Container para agrupar botões */
+.buttons-container {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap; /* Garante que não quebre em telas pequenas */
+}
+
+/* Configurações Base de todos os Botões */
+.botao, .botao-outline {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid transparent; /* Reserva o espaço da borda */
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-default);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Botão Primário (Preenchido) --- */
+.botao {
+    border-color: var(--purple-500);
+    background-color: var(--purple-500);
+    color: var(--white);
+}
+
+.botao:hover {
+    background-color: var(--purple-600);
+    border-color: var(--purple-600);
+    box-shadow: var(--shadow-md); /* glow roxo */
+    transform: translateY(-0.25rem);
+}
+
+/* --- Botão Outline (Transparente) --- */
+.botao-outline {
+    border-color: var(--purple-500);
+    background-color: transparent;
+    color: var(--purple-300); /* Roxo mais claro para ler melhor no fundo preto */
+}
+
+.botao-outline:hover {
+    background-color: var(--purple-500);
+    color: var(--white);
+    transform: translateY(-0.25rem);
+    box-shadow: var(--shadow-md);
+}
+
+/* --- ESTADO DE CLIQUE  --- */
+.botao:active, .botao-outline:active {
+    background-color: var(--neon-green-active);
+    border-color: var(--neon-green-active);
+    color: var(--black); /* Texto preto para alto contraste no verde brilhante */
+    transform: translateY(0); /* Volta para a posição original ao apertar */
+}
+
+/* --- Modificador: Botão Pequeno (Projetos) --- */
+.botao-sm {
+    min-width: 8rem;
+    padding: 0.5rem 1rem;
+    border-width: 1px;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+}
