@@ -478,7 +478,7 @@ header a:hover {
 }
 
 .project-image img {
-    width: 4rem;
+    width: 7rem;
     height: auto;
     filter: drop-shadow(0 0 5px var(--purple-300));
 }
