@@ -1,52 +1,55 @@
+/* Reset global e modelagem de caixa */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;                    /* remover margens padrão */
+    padding: 0;                   /* remover espaçamento interno padrão */
+    box-sizing: border-box;       /* incluir borda no tamanho total */
 }
 
+/* Tipografia e elementos base */
 body {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif; /* fonte principal do site */
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%;              /* limitar imagens ao tamanho do container */
+    height: auto;                 /* preservar proporção da imagem */
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none;        /* remover sublinhado dos links */
 }
 
+/* Variáveis de tema e design */
 :root {
-    /* 1. PALETA DE CORES */
+    /* PALETA PRINCIPAL */
     --purple-50: #f4eaff;
     --purple-100: #e9dcfa;
     --purple-200: #cdb3f0;
     --purple-300: #b186e5;
     --purple-400: #9460db;
-    --purple-500: #862BAB; /* O Roxo Principal das suas abas */
+    --purple-500: #862BAB;       /* roxo principal */
     --purple-600: #6b36c8;
     --purple-700: #5b2ca0;
     --purple-800: #4c2177;
-    --purple-900: #211A1D; /* Roxo ultra escuro */
+    --purple-900: #211A1D;       /* roxo bem escuro */
 
-    /* 2. CORES NEUTRAS */
-    --black: #000501;      /* O fundo preto que você quer */
-    --white: #FAF7FF;      /* Escrita em Branco */
-    --silver: #C2C1C2;     /* O Silver bonito para textos secundários */
-    --gray-400: #505861;   /* Cinza auxiliar */
+    /* NEUTROS E TEXTOS */
+    --black: #000501;            /* fundo escuro */
+    --white: #FAF7FF;            /* texto claro */
+    --silver: #C2C1C2;           /* texto secundário */
+    --gray-400: #505861;         /* cinza neutro */
 
-    /* 3. CORES DE INTERAÇÃO */
-    --neon-green: #38A524;        /* Para ícones e detalhes */
-    --neon-green-active: #2bff00; /* O brilho quando alguém clicar */
-    --error: #e63946;             /* Cor de erro padrão */
+    /* INTERAÇÃO */
+    --neon-green: #38A524;       /* detalhe verde */
+    --neon-green-active: #2bff00;/* verde ativo */
+    --error: #e63946;            /* cor de erro */
 
-    /* 4. SOMBRAS E BRILHOS */
-    --shadow-sm: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 0.25rem 0.75rem rgba(134, 43, 171, 0.3); /* Brilho Roxo */
-    --shadow-lg: 0 0.5rem 1.5rem rgba(56, 165, 36, 0.2);   /* Brilho Verde */
+    /* SOMBRAS E BRILHOS */
+    --shadow-sm: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);               /* sombra leve */
+    --shadow-md: 0 0.25rem 0.75rem rgba(134, 43, 171, 0.3);         /* brilho roxo */
+    --shadow-lg: 0 0.5rem 1.5rem rgba(56, 165, 36, 0.2);            /* brilho verde */
 
-    /* 5. ESPAÇAMENTOS */
+    /* ESPAÇOS */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -54,7 +57,7 @@ a {
     --spacing-xl: 3rem;
     --spacing-2xl: 4rem;
 
-    /* 6. TAMANHOS DE FONTE */
+    /* FONTE */
     --text-sm: 0.75rem;
     --text-base: 1rem;
     --text-lg: 1.25rem;
@@ -62,7 +65,7 @@ a {
     --text-2xl: 2rem;
     --text-3xl: 2.5rem;
 
-    /* 7. BORDAS E ANIMAÇÃO */
+    /* BORDAS E ANIMAÇÕES */
     --radius-sm: 0.25rem;
     --radius-md: 0.5rem;
     --radius-lg: 1rem;
@@ -71,1040 +74,1185 @@ a {
     --transition-default: all 0.3s ease;
 }
 
+/* Rolagem suave em toda a página */
 html {
     scroll-behavior: smooth;
 }
 
+/* Estrutura base do layout */
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    
-    /* Identidade Visual */
-    background-color: var(--black); 
+    display: flex;                /* layout em coluna */
+    flex-direction: column;       /* empilha seções verticalmente */
+    min-height: 100vh;            /* ocupar altura total */
+    background-color: var(--black); /* fundo escuro */
     background-image: linear-gradient(rgba(0, 5, 1, 0.8), rgba(33, 26, 29, 0.7)), url('../img/background_portfolio_1.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-
-    line-height: 1.6;
-    color: var(--white); /* Texto principal em branco */
+    background-size: cover;       /* imagem de fundo cobre toda a área */
+    background-position: center;  /* centraliza a imagem */
+    background-attachment: fixed; /* imagem fixa ao rolar */
+    background-repeat: no-repeat; /* não repete o background */
+    line-height: 1.6;             /* espaçamento entre linhas */
+    color: var(--white);          /* texto principal em branco */
 }
 
 main {
-    flex: 1;
-    padding-top: 4rem;
+    flex: 1;                      /* ocupa espaço restante */
+    padding-top: 4rem;            /* espaçamento interno superior */
 }
 
+/* Container padrão das seções */
 .section-container {
-    max-width: 70rem;
-    min-height: auto;
-    width: 100%;
-    margin: 0 auto 4rem auto;
-    padding: var(--spacing-xl);
-    box-sizing: border-box;
-    background-color: rgba(33, 26, 29, 0.6);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    scroll-margin-top: 6rem;
-    overflow: hidden;
+    max-width: 70rem;             /* largura máxima de leitura */
+    min-height: auto;             /* altura mínima automática */
+    width: 100%;                  /* largura total do container */
+    margin: 0 auto 4rem auto;     /* centraliza horizontal e espaça abaixo */
+    padding: var(--spacing-xl);   /* espaçamento interno maior */
+    box-sizing: border-box;       /* garante box-sizing correto */
+    background-color: rgba(33, 26, 29, 0.6); /* painel semitransparente */
+    border-radius: var(--radius-lg); /* cantos arredondados */
+    box-shadow: var(--shadow-md); /* sombra roxa suave */
+    scroll-margin-top: 6rem;      /* margem de rolagem para âncoras */
+    overflow: hidden;             /* evitar overflow visual */
 }
 
-
-/* Unificando o comportamento de todas as seções */
-.hero-container, 
-.about-container, 
-.projects-container,
-.projects-wrapper, 
+/* Layout base das principais seções */
+.hero-container,
+.about-container,
 .contact-container {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between;
-    gap: var(--spacing-2xl);
-    flex-wrap: wrap;
+    display: flex;                /* layout em linha */
+    align-items: center;          /* alinha verticalmente */
+    justify-content: space-between; /* distribui espaço entre itens */
+    gap: var(--spacing-2xl);      /* espaçamento entre colunas */
+    flex-wrap: wrap;              /* permite quebra em telas menores */
 }
 
+/* Imagens e blocos visuais das seções */
 .hero-image,
 .about-image,
-.projects-image, 
+.projects-image,
 .contact-image-box {
-    flex: 1;
-    max-width: 22rem;
-    width: 100%;
+    flex: 1;                      /* ocupa espaço disponível */
+    max-width: 22rem;             /* largura máxima consistente */
+    width: 100%;                  /* largura total do container */
 }
 
-.hero-image img, 
-.about-image img, 
-.projects-personagem-fixed img, 
+.hero-image img,
+.about-image img,
+.projects-personagem-fixed img,
 .contact-image-box img {
-    width: 100%;
-    height: auto;
-    object-fit: contain; 
+    width: 100%;                  /* ocupa toda a largura do bloco */
+    height: auto;                 /* mantém proporção */
+    object-fit: contain;          /* ajusta sem cortar */
 }
 
-.hero-content, 
-.about-content, 
-.projects-content-box, 
+/* Conteúdo flexível de cada seção */
+.hero-content,
+.about-content,
 .contact-content-wrapper {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex: 1;                      /* ocupa restante do espaço */
+    min-width: 0;                 /* evita overflow em flex */
+    display: flex;                /* layout em coluna */
+    flex-direction: column;       /* itens empilhados */
+    justify-content: center;      /* centraliza vertical */
 }
 
-/* Container para agrupar botões */
+/* Grupo de botões comum */
 .buttons-container {
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap; /* Garante que não quebre em telas pequenas */
+    display: flex;                /* itens em linha */
+    gap: var(--spacing-sm);       /* espaçamento entre botões */
+    flex-wrap: wrap;              /* quebra em linha quando necessário */
 }
 
-/* Configurações Base de todos os Botões */
-.botao, .botao-outline {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border: 2px solid transparent; /* Reserva o espaço da borda */
-    border-radius: var(--radius-md);
-    font-size: var(--text-base);
-    font-weight: 700;
-    text-align: center;
-    cursor: pointer;
-    transition: var(--transition-default);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Estilização base dos botões */
+.botao,
+.botao-outline {
+    display: inline-block;        /* comporta-se como botão */
+    padding: 0.75rem 1.5rem;      /* espaçamento interno padrão */
+    border: 2px solid transparent;/* espaço reservado para borda */
+    border-radius: var(--radius-md); /* canto arredondado */
+    font-size: var(--text-base);  /* tamanho de fonte médio */
+    font-weight: 700;             /* texto em negrito */
+    text-align: center;           /* centraliza texto */
+    cursor: pointer;              /* cursor de clique */
+    transition: var(--transition-default); /* animação suave */
+    text-transform: uppercase;    /* texto em maiúsculas */
+    letter-spacing: 1px;          /* espaçamento entre letras */
 }
 
-/* --- Botão Primário (Preenchido) --- */
+/* Botão principal preenchido */
 .botao {
-    border-color: var(--purple-500);
-    background-color: var(--purple-500);
-    color: var(--white);
+    border-color: var(--purple-500); /* borda roxa */
+    background-color: var(--purple-500); /* fundo roxo */
+    color: var(--white);           /* texto branco */
 }
 
 .botao:hover {
-    background-color: var(--purple-600);
-    border-color: var(--purple-600);
-    box-shadow: var(--shadow-md); /* glow roxo */
-    transform: translateY(-0.25rem);
+    background-color: var(--purple-600); /* roxo mais escuro */
+    border-color: var(--purple-600); /* borda combinando */
+    box-shadow: var(--shadow-md);   /* brilho ao passar o mouse */
+    transform: translateY(-0.25rem); /* leve elevação */
 }
 
-/* --- Botão Outline (Transparente) --- */
+/* Botão outline transparente */
 .botao-outline {
-    border-color: var(--purple-500);
-    background-color: transparent;
-    color: var(--purple-300); /* Roxo mais claro para ler melhor no fundo preto */
+    border-color: var(--purple-500); /* borda roxa */
+    background-color: transparent;  /* fundo transparente */
+    color: var(--purple-300);        /* texto roxo claro */
 }
 
 .botao-outline:hover {
-    background-color: var(--purple-500);
-    color: var(--white);
-    transform: translateY(-0.25rem);
-    box-shadow: var(--shadow-md);
+    background-color: var(--purple-500); /* fundo roxo no hover */
+    color: var(--white);           /* texto branco no hover */
+    transform: translateY(-0.25rem); /* leve elevação */
+    box-shadow: var(--shadow-md);   /* brilho no hover */
 }
 
-/* --- ESTADO DE CLIQUE  --- */
-.botao:active, .botao-outline:active {
-    background-color: var(--neon-green-active);
-    border-color: var(--neon-green-active);
-    color: var(--black); /* Texto preto para alto contraste no verde brilhante */
-    transform: translateY(0); /* Volta para a posição original ao apertar */
+/* Estado ativo de clique */
+.botao:active,
+.botao-outline:active {
+    background-color: var(--neon-green-active); /* verde ativo */
+    border-color: var(--neon-green-active); /* borda verde */
+    color: var(--black);            /* texto escuro para contraste */
+    transform: translateY(0);       /* volta à posição original */
 }
 
-/* --- Modificador: Botão Pequeno (Projetos) --- */
+/* Variante menor de botão */
 .botao-sm {
-    min-width: 8rem;
-    padding: 0.5rem 1rem;
-    border-width: 1px;
-    border-radius: var(--radius-sm);
-    font-size: var(--text-sm);
+    min-width: 8rem;               /* largura mínima */
+    padding: 0.5rem 1rem;          /* espaçamento reduzido */
+    border-width: 1px;             /* borda fina */
+    border-radius: var(--radius-sm); /* borda menor */
+    font-size: var(--text-sm);     /* texto menor */
 }
 
+/* Cabeçalho fixo e menu */
 header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    min-height: 5rem;
-    height: auto;
-    padding: 0.5rem 0;
-    border-bottom: 0.15rem solid var(--purple-500);
-    background-color: var(--purple-900);
-    box-shadow: var(--shadow-md);
-
-    display:flex;
-    align-items: center;
-    
+    position: sticky;              /* fixo no topo */
+    top: 0;                        /* topo da página */
+    z-index: 1000;                 /* acima de outros elementos */
+    width: 100%;                   /* largura total */
+    min-height: 5rem;              /* altura mínima */
+    height: auto;                  /* altura automática */
+    padding: 0.5rem 0;             /* espaçamento vertical */
+    border-bottom: 0.15rem solid var(--purple-500); /* linha inferior */
+    background-color: var(--purple-900); /* fundo escuro */
+    box-shadow: var(--shadow-md);  /* sombra leve */
+    display: flex;                 /* layout em linha */
+    align-items: center;           /* centraliza verticalmente */
 }
 
 header a {
-    font-weight: 600;
-    color: var(--white);
-    transition: var(--transition-default);
+    font-weight: 600;              /* texto semi-negrito */
+    color: var(--white);           /* link branco */
+    transition: var(--transition-default); /* animação suave */
 }
 
 header a:hover {
-    color: var(--neon-green);
+    color: var(--neon-green);      /* link verde no hover */
 }
 
 #titulo {
-    font-size: var(--text-xl);
-    font-weight: 700;
-    color: var(--neon-green);
+    font-size: var(--text-xl);     /* tamanho do título */
+    font-weight: 700;              /* negrito */
+    color: var(--neon-green);      /* destaque verde */
 }
 
 .menu-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 70rem;
-    width: 100%; 
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    display: flex;                 /* layout em linha */
+    justify-content: space-between;/* espaço entre itens */
+    align-items: center;           /* centraliza verticalmente */
+    max-width: 70rem;              /* largura máxima do menu */
+    width: 100%;                   /* largura total */
+    margin: 0 auto;                /* centraliza horizontalmente */
+    padding: 0 var(--spacing-md);  /* espaçamento horizontal */
 }
 
 .menu-list {
-    display: flex;
-    gap: var(--spacing-lg);
-    list-style:none;
+    display: flex;                 /* lista em linha */
+    gap: var(--spacing-lg);        /* espaçamento entre itens */
+    list-style: none;              /* remove marcadores */
 }
 
 .menu-list a {
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm); /* área clicável maior */
 }
 
+/* Hero section */
 .hero-content {
-    display:flex;
-    flex: 1;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+    flex: 1;                      /* ocupa o espaço restante */
+    min-width: 0;                 /* evita overflow */
+    display: flex;                /* layout em coluna */
+    flex-direction: column;       /* itens empilhados */
+    justify-content: center;      /* centraliza verticalmente */
+    gap: var(--spacing-sm);       /* espaçamento interno */
 }
 
 .hero-content span {
-    font-size: var(--text-lg);
-    font-weight: 700;
-    color: var(--neon-green);
+    font-size: var(--text-lg);    /* texto menor */
+    font-weight: 700;             /* negrito */
+    color: var(--neon-green);     /* destaque verde */
 }
 
 .hero-content h1 {
-    font-size: var(--text-3xl);
-    font-weight: 700;
+    font-size: var(--text-3xl);   /* título grande */
+    font-weight: 700;             /* negrito */
 }
 
-.hero-content p, .about-content p, .contact-info p {
-    font-size: var(--text-base);
-    color: var(--silver); 
+.hero-content p,
+.about-content p,
+.contact-info p {
+    font-size: var(--text-base);  /* texto base */
+    color: var(--silver);         /* cor de texto secundário */
 }
 
 .hero-image {
-    position: relative;
-    flex: 0 0 22rem; /* mantém estável */
-    max-width: 22rem;
-    width: 100%;
-    height: 35rem;
+    position: relative;           /* permite posicionamento absoluto interno */
+    flex: 0 0 22rem;              /* largura fixa em flex */
+    max-width: 22rem;             /* largura máxima */
+    width: 100%;                  /* largura total do container */
+    height: 35rem;                /* altura fixa */
 }
 
-
 .hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: var(--radius-lg);
+    width: 100%;                  /* ocupa toda a largura do bloco */
+    height: 100%;                 /* ocupa toda a altura do bloco */
+    object-fit: contain;          /* ajusta imagem sem cortar */
+    border-radius: var(--radius-lg); /* bordas arredondadas */
 }
 
 @keyframes float {
-    0%, 100% { transform: translate(-50%, -50%); }
-    50% { transform: translate(-50%, calc(-50% - 1rem)); }
+    0%, 100% {
+        transform: translate(-50%, -50%); /* posição inicial/final */
+    }
+    50% {
+        transform: translate(-50%, calc(-50% - 1rem)); /* sobe no meio */
+    }
 }
 
 .float-animation {
-    animation: float 3s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite; /* animação flutuante */
 }
 
 .img-hero {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+    position: absolute;           /* posicionamento sobreposto */
+    top: 50%;                     /* centraliza verticalmente */
+    left: 50%;                    /* centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* movimenta ao centro exato */
+    width: 100%;                  /* largura total do bloco */
+    height: auto;                 /* altura proporcional */
+    object-fit: contain;          /* ajusta dentro do container */
 }
 
-/* esconde a foto real iniciamente */
 .hover-photo {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0;                   /* começa invisível */
+    visibility: hidden;           /* não visível inicialmente */
 }
 
-/* Quando o mouse passa no container da imagem */
 .hero-image:hover .principal {
-    opacity: 0; /* Esconde a personagem */
+    opacity: 0;                   /* esconde personagem no hover */
 }
 
 .hero-image:hover .hover-photo {
-    opacity: 1; /* Mostra foto real */
-    visibility: visible;
+    opacity: 1;                   /* mostra foto real no hover */
+    visibility: visible;          /* torna visível */
 }
 
-.about-image{
-    flex: 0 0 22rem;        
-    display: flex;
-    justify-content: center;
+/* About section */
+.about-image {
+    flex: 0 0 22rem;              /* largura fixa em flex */
+    display: flex;                /* layout flex para centralização */
+    justify-content: center;      /* centraliza imagem */
 }
 
 .about-image img {
-    width: 100%;
-    max-width:100%;
-    height:auto;
-    box-shadow: none;
-    border: none;     
-    border-radius: 0;
-    animation: float-about 3s ease-in-out infinite;
+    width: 100%;                  /* largura total do container */
+    max-width: 100%;              /* não ultrapassa container */
+    height: auto;                 /* mantém proporção */
+    box-shadow: none;             /* sem sombra */
+    border: none;                 /* sem borda */
+    border-radius: 0;             /* sem cantos arredondados */
+    animation: float-about 3s ease-in-out infinite; /* animação leve */
 }
 
-
 @keyframes float-about {
-     0%, 100% { transform: translate(0%); }
-     50% { transform: translateY(-0.8rem); }
+    0%, 100% {
+        transform: translate(0%);  /* posição inicial e final */
+    }
+    50% {
+        transform: translateY(-0.8rem); /* sobe levemente no meio */
+    }
 }
 
 .about-content h2,
 .projects-container h2,
 .contact-header h2 {
-    margin-bottom: var(--spacing-md);
-    font-size: var(--text-2xl);
-    font-weight: 700;
-    color: var(--neon-green);
+    margin-bottom: var(--spacing-md); /* espaço abaixo do título */
+    font-size: var(--text-2xl);       /* tamanho maior */
+    font-weight: 700;                 /* negrito */
+    color: var(--neon-green);         /* destaque verde */
 }
 
 .about-content p {
-    margin-bottom: var(--spacing-sm);
-    text-align: justify;
+    margin-bottom: var(--spacing-sm); /* espaço entre parágrafos */
+    text-align: justify;             /* alinha texto justificado */
 }
 
 .about-buttons-data {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
+    display: flex;                    /* layout em linha */
+    justify-content: space-between;   /* espaço entre itens */
+    align-items: center;              /* alinha verticalmente */
+    gap: var(--spacing-lg);           /* espaçamento entre elementos */
+    margin-top: var(--spacing-lg);    /* margem superior */
 }
 
 .about-buttons-data .buttons-container {
-    margin-right: auto;
+    margin-right: auto;              /* empurra o grupo de botões para a esquerda */
 }
 
 .data-container {
-    display: flex;
-    gap: var(--spacing-lg);
-    margin-top: 0;
+    display: flex;                    /* layout em linha */
+    gap: var(--spacing-lg);           /* espaçamento entre dados */
+    margin-top: 0;                    /* remove margem superior */
 }
 
 .data-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: flex;                    /* layout em coluna */
+    flex-direction: column;           /* empilha número e rótulo */
+    align-items: center;              /* centraliza conteúdo */
 }
 
 .data-number {
-    font-size: var(--text-xl);
-    font-weight: 700;
-    text-align: center;
-    color: var(--neon-green);
+    font-size: var(--text-xl);        /* tamanho maior do número */
+    font-weight: 700;                 /* negrito */
+    text-align: center;               /* centraliza texto */
+    color: var(--neon-green);         /* destaque verde */
 }
 
 .data-label {
-    font-size: var(--text-base);
-    text-align: center;
-    color: var(--silver);
+    font-size: var(--text-base);      /* texto de rótulo */
+    text-align: center;               /* centraliza texto */
+    color: var(--silver);             /* cor secundária */
 }
 
+/* Projects section */
 .projects-container {
-   display: block;
+    width: 100%;                      /* ocupa toda a largura */
 }
 
 .projects-wrapper {
-    display: flex;
-    align-items: stretch;
-    gap: var(--spacing-xl);
-    width: 100%;
+    display: flex;                    /* layout em linha */
+    align-items: center;              /* alinha verticalmente */
+    justify-content: space-between;   /* espaça os elementos */
+    gap: 4rem;                        /* espaçamento grande */
+    width: 100%;                      /* ocupa toda a largura */
+    flex-wrap: nowrap;                /* impede quebra */
 }
 
 .projects-content-box {
-    flex: 1; 
-    min-width: 0;
-}
-
-.projects-title {
-    text-align: left;
-    margin-bottom: var(--spacing-lg);
-    color: var(--neon-green);
-    font-size: var(--text-2xl);
-    font-weight: 700;
-}
-
-.projects-swiper {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 3rem;
-}
-
-.project-card {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--purple-900);
-    border: 1px solid var(--purple-500);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-xl);
-    
-    width: 100%; 
-    min-height: 25rem; /* Campo fixo de projetos */
-    transition: var(--transition-default);
-}
-
-.project-card:hover {
-    box-shadow: 0 0 20px var(--neon-green);
-    transform: translateY(-0.5rem);
+    flex: 1 1 40rem;                  /* ocupa espaço flexível */
+    min-width: 0;                     /* evita overflow */
 }
 
 .projects-personagem-fixed {
-    flex: 0 0 22rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 0 0 22rem;                  /* largura fixa em flex */
+    display: flex;                    /* centraliza imagem */
+    justify-content: center;          /* centraliza horizontalmente */
+    align-items: center;              /* centraliza verticalmente */
+}
+
+.projects-title {
+    text-align: left;                 /* alinha título à esquerda */
+    margin-bottom: var(--spacing-lg); /* espaço abaixo */
+    color: var(--neon-green);         /* destaque verde */
+    font-size: var(--text-2xl);       /* tamanho do título */
+    font-weight: 700;                 /* negrito */
+}
+
+.projects-swiper {
+    width: 100%;                      /* largura total do swiper */
+    max-width: 30em;                  /* limite de largura */
+}
+
+.project-card {
+    display: flex;                    /* layout em coluna */
+    flex-direction: column;           /* empilha conteúdo */
+    background-color: var(--purple-900); /* fundo escuro */
+    border: 1px solid var(--purple-500); /* borda roxa */
+    border-radius: var(--radius-md); /* bordas arredondadas */
+    padding: var(--spacing-xl);       /* espaçamento interno */
+    width: 100%;                      /* ocupa toda a largura */
+    min-height: 25rem;                /* altura mínima */
+    transition: var(--transition-default); /* animação suave */
+}
+
+.mySwiper {
+    width: 100%;                      /* largura total do swiper */
+}
+
+.project-card:hover {
+    box-shadow: 0 0 20px var(--neon-green); /* sombra verde no hover */
+    transform: translateY(-0.5rem);  /* sobe levemente no hover */
 }
 
 .project-image img {
-    width: 7rem;
-    height: auto;
-    filter: drop-shadow(0 0 5px var(--purple-300));
+    width: 7rem;                      /* largura fixa da imagem */
+    height: auto;                     /* mantém proporção */
+    filter: drop-shadow(0 0 5px var(--purple-300)); /* sombra roxa */
 }
 
 .project-image {
-    background: rgba(255, 255, 255, 0.05);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--spacing-md);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 8rem;
+    background: rgba(255, 255, 255, 0.05); /* fundo translúcido */
+    padding: var(--spacing-md);      /* espaçamento interno */
+    border-radius: var(--radius-md); /* bordas arredondadas */
+    margin-bottom: var(--spacing-md);/* espaço abaixo */
+    display: flex;                   /* centraliza conteúdo */
+    justify-content: center;         /* alinha horizontalmente */
+    align-items: center;             /* alinha verticalmente */
+    height: 8rem;                    /* altura fixa do container */
 }
 
 .projects-personagem-fixed img {
-    width: 100%;
-    height: auto;
-    max-width: 25rem;
-    animation: float-about 3s ease-in-out infinite; 
+    width: 100%;                      /* largura total */
+    height: auto;                     /* mantém proporção */
+    max-width: 25rem;                 /* limite de largura */
+    animation: float-about 3s ease-in-out infinite; /* animação leve */
 }
 
 .project-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    display: flex;                    /* layout em coluna */
+    flex-direction: column;           /* empilha conteúdo */
+    flex: 1;                          /* ocupa espaço restante */
 }
 
 .project-content h3 {
-    color: var(--white);
-    margin-bottom: var(--spacing-xs);
+    color: var(--white);             /* título em branco */
+    margin-bottom: var(--spacing-xs); /* espaço abaixo */
 }
 
 .project-content p {
-    color: var(--silver);
-    margin-bottom: var(--spacing-md);
+    color: var(--silver);            /* texto secundário */
+    margin-bottom: var(--spacing-md); /* espaço abaixo */
 }
 
 .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    margin-bottom: var(--spacing-md);
+    display: flex;                    /* layout em linha */
+    flex-wrap: wrap;                  /* quebra quando necessário */
+    gap: var(--spacing-xs);           /* espaçamento entre tags */
+    margin-bottom: var(--spacing-md); /* espaço abaixo */
 }
 
 .tag {
-    padding: 0.25rem 0.75rem;
-    background-color: var(--purple-500);
-    border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--white);
+    padding: 0.25rem 0.75rem;         /* espaçamento interno */
+    background-color: var(--purple-500); /* fundo roxo */
+    border-radius: var(--radius-full); /* pílula arredondada */
+    font-size: var(--text-sm);        /* texto menor */
+    font-weight: 700;                 /* negrito */
+    color: var(--white);              /* texto branco */
 }
 
 .project-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-sm);
-    margin-top: auto;
+    display: flex;                    /* layout em linha */
+    justify-content: center;          /* centraliza horizontalmente */
+    align-items: center;              /* centraliza verticalmente */
+    gap: var(--spacing-sm);           /* espaçamento entre botões */
+    margin-top: auto;                 /* empurra para baixo */
 }
 
 .swiper-wrapper {
-    align-items: stretch;
+    align-items: stretch;             /* estica slides verticalmente */
 }
 
 .swiper-slide {
-    display: flex; 
-    height: auto;
+    display: flex;                    /* layout flex */
+    height: auto;                     /* altura automática */
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-    width: 2rem;
-    height: 2rem;
+    width: 2rem;                      /* largura dos botões */
+    height: 2rem;                     /* altura dos botões */
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-    font-size: 2.3rem;
-    color: var(--neon-green);
-    font-weight: bold;
+    font-size: 2.3rem;                /* tamanho do ícone */
+    color: var(--neon-green);         /* cor verde */
+    font-weight: bold;                /* ícone em negrito */
 }
 
 .swiper-button-next:hover::after,
 .swiper-button-prev:hover::after {
-    font-size: 3rem;
-    color: var(--neon-green-active);
-    text-shadow: 0 0 15px var(--neon-green);
+    font-size: 3rem;                  /* ícone maior no hover */
+    color: var(--neon-green-active);  /* verde mais brilhante */
+    text-shadow: 0 0 15px var(--neon-green); /* brilho verde */
 }
 
-/* Customizando as bolinhas da paginação (bullets) */
+/* Paginação do swiper */
 .swiper-pagination-bullet {
-    width: 0.8rem;
-    height: 0.8rem;
-    background-color: var(--silver);
-    opacity: 0.5;
+    width: 0.8rem;                    /* bolinha pequena */
+    height: 0.8rem;                   /* altura igual */
+    background-color: var(--silver);  /* cor neutra */
+    opacity: 0.5;                     /* leve translucidez */
 }
 
 .swiper-pagination-bullet-active {
-    width: 2.5rem;          
-    border-radius: var(--radius-sm); 
-    background-color: var(--neon-green);
-    opacity: 1;
-    box-shadow: 0 0 8px var(--neon-green);
+    width: 2.5rem;                    /* bolinha ativa maior */
+    border-radius: var(--radius-sm);   /* bordas arredondadas */
+    background-color: var(--neon-green); /* verde ativo */
+    opacity: 1;                       /* totalmente opaco */
+    box-shadow: 0 0 8px var(--neon-green); /* brilho verde */
 }
 
+/* Contact section */
 .contact-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--spacing-2xl);
-    width: 100%;
-    min-height: 35rem;
+    display: flex;                    /* layout em linha */
+    align-items: center;              /* alinha verticalmente */
+    justify-content: space-between;   /* distribui espaço */
+    gap: var(--spacing-2xl);          /* espaçamento largo */
+    width: 100%;                      /* largura total */
+    min-height: 35rem;                /* altura mínima */
 }
 
 .social-container {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-md);
-    width: 100%;
-    max-width: 40rem; 
+    display: flex;                    /* layout em linha */
+    justify-content: center;          /* centraliza horizontalmente */
+    gap: var(--spacing-md);           /* espaçamento entre ícones */
+    width: 100%;                      /* largura total */
+    max-width: 40rem;                 /* limite de largura */
 }
+
 .social-icon {
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(134, 43, 171, 0.1);
-    border-radius: var(--radius-md);
-    transition: var(--transition-default);
+    width: 3rem;                      /* largura do ícone */
+    height: 3rem;                     /* altura do ícone */
+    display: flex;                    /* layout flex */
+    align-items: center;              /* centraliza verticalmente */
+    justify-content: center;          /* centraliza horizontalmente */
+    background: rgba(134, 43, 171, 0.1); /* fundo leve */
+    border-radius: var(--radius-md);  /* cantos arredondados */
+    transition: var(--transition-default); /* animação suave */
 }
 
 .social-icon img {
-    width: 100%;
-    filter: brightness(0) invert(1);
-    transition: var(--transition-default);
+    width: 100%;                      /* ocupa o ícone inteiro */
+    filter: brightness(0) invert(1);  /* tonalidade clara */
+    transition: var(--transition-default); /* animação suave */
 }
 
 .social-icon:hover {
-    background: var(--purple-500);
-    transform: translateY(-0.3rem);
+    background: var(--purple-500);    /* fundo roxo no hover */
+    transform: translateY(-0.3rem);   /* eleva o ícone */
 }
 
 .social-icon:hover img {
-    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%); /* cor ativada */
 }
 
 .contact-image-box {
-    flex: 0 0 20rem;
-    max-width: 20rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 0 0 20rem;                  /* largura fixa */
+    max-width: 20rem;                 /* largura máxima */
+    display: flex;                    /* layout flex */
+    justify-content: center;          /* centraliza horizontalmente */
+    align-items: center;              /* centraliza verticalmente */
 }
 
 .contact-image-box img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    max-height: 38rem; 
-    animation: float-about 3s ease-in-out infinite;
+    width: 100%;                      /* largura total */
+    height: auto;                     /* mantém proporção */
+    object-fit: contain;              /* ajusta sem cortar */
+    max-height: 38rem;                /* altura máxima */
+    animation: float-about 3s ease-in-out infinite; /* animação leve */
 }
 
 .contact-content-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex: 1;                          /* ocupa espaço restante */
+    display: flex;                    /* layout em coluna */
+    flex-direction: column;           /* empilha conteúdo */
+    align-items: center;              /* centraliza horizontalmente */
 }
 
 .contact-header {
-    text-align: center;
-    width: 100%;
-    max-width: 40rem; 
-    margin-bottom: var(--spacing-md);
+    text-align: center;               /* centraliza títulos */
+    width: 100%;                      /* largura total */
+    max-width: 40rem;                 /* largura máxima */
+    margin-bottom: var(--spacing-md); /* espaço abaixo */
 }
 
 .contact-header h2 {
-    color: var(--neon-green);
-    font-size: var(--text-2xl);
-    font-weight: 700;
+    color: var(--neon-green);         /* destaque verde */
+    font-size: var(--text-2xl);       /* tamanho do título */
+    font-weight: 700;                 /* negrito */
 }
 
 #formulario {
-    width: 100%;
-    max-width: 40rem;
-    max-height: 40rem;
-    background: rgba(33, 26, 29, 0.4);
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-md);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    width: 100%;                      /* ocupa largura total */
+    max-width: 40rem;                 /* largura máxima do formulário */
+    max-height: 40rem;                /* altura máxima */
+    background: rgba(33, 26, 29, 0.4); /* fundo translúcido */
+    padding: var(--spacing-sm);       /* espaçamento interno */
+    border-radius: var(--radius-md);  /* cantos arredondados */
+    display: flex;                    /* layout em coluna */
+    flex-direction: column;           /* itens empilhados */
+    gap: 0.5rem;                      /* espaçamento entre campos */
 }
 
 #formulario label {
-    font-size: var(--text-lg);
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: -0.2rem;
+    font-size: var(--text-lg);        /* tamanho do texto do label */
+    font-weight: 700;                 /* negrito */
+    color: var(--white);              /* label branco */
+    margin-bottom: -0.2rem;           /* ajuste fino de espaçamento */
 }
 
-#formulario input, 
+#formulario input,
 #formulario textarea {
-    width: 100%;
-    padding: 0.3rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--purple-400);
-    border-radius: var(--radius-sm);
-    color: var(--white);
-    font-family: 'Orbitron', sans-serif;
-    transition: var(--transition-default);
+    width: 100%;                      /* ocupa largura total */
+    padding: 0.3rem;                  /* espaçamento interno */
+    background: rgba(255, 255, 255, 0.05); /* fundo suave */
+    border: 1px solid var(--purple-400); /* borda roxa clara */
+    border-radius: var(--radius-sm);   /* cantos arredondados */
+    color: var(--white);               /* texto branco */
+    font-family: 'Orbitron', sans-serif; /* fonte consistente */
+    transition: var(--transition-default); /* animação suave */
 }
 
 #formulario textarea {
-    min-height: 100px;
-    resize: none;
+    min-height: 100px;                /* altura mínima do textarea */
+    resize: none;                     /* impede redimensionar */
 }
 
-#formulario input:focus, 
+#formulario input:focus,
 #formulario textarea:focus {
-    border-color: var(--neon-green);
-    box-shadow: 0 0 10px var(--neon-green);
-    outline: none;
+    border-color: var(--neon-green);   /* borda verde no foco */
+    box-shadow: 0 0 10px var(--neon-green); /* brilho verde no foco */
+    outline: none;                    /* remove outline padrão */
 }
 
+/* Rodapé */
 footer {
-    padding: 2.5rem; 
-    background: linear-gradient(to right, var(--purple-500), var(--purple-900)); 
-    text-align: center; 
-    color: var(--white);
+    padding: 2.5rem;                  /* espaçamento interno */
+    background: linear-gradient(to right, var(--purple-500), var(--purple-900)); /* gradiente */
+    text-align: center;               /* centraliza texto */
+    color: var(--white);              /* texto branco */
 }
 
+/* Página de sucesso */
 @keyframes float-success {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-1rem); }
+    0%, 100% {
+        transform: translateY(0);      /* posição inicial/final */
+    }
+    50% {
+        transform: translateY(-1rem);  /* sobe no meio */
+    }
 }
 
 .float-success {
-    animation: float-success 3s ease-in-out infinite;
+    animation: float-success 3s ease-in-out infinite; /* animação flutuante */
 }
 
 .success-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: flex;                    /* layout em coluna */
+    flex-direction: column;           /* empilha conteúdo */
+    justify-content: center;          /* centraliza verticalmente */
+    align-items: center;              /* centraliza horizontalmente */
 }
 
 .success-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 35rem;
+    display: flex;                    /* layout em coluna */
+    flex-direction: column;           /* itens empilhados */
+    align-items: center;              /* centraliza horizontalmente */
+    max-width: 35rem;                 /* largura máxima */
 }
 
 .success-content h1 {
-    text-align: center;
-    font-size: var(--text-2xl);
-    font-weight: 700;
-    margin-top: var(--spacing-sm);
+    text-align: center;               /* centraliza título */
+    font-size: var(--text-2xl);       /* tamanho grande */
+    font-weight: 700;                 /* negrito */
+    margin-top: var(--spacing-sm);    /* margem superior */
 }
 
 .success-content h2 {
-    text-align: center;
-    font-size: var(--text-lg);
-    color: var(--silver);
+    text-align: center;               /* centraliza subtítulo */
+    font-size: var(--text-lg);        /* tamanho base */
+    color: var(--silver);             /* cor secundária */
 }
 
 .success-personagem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 22rem;
-    margin-bottom: var(--spacing-sm);
+    display: flex;                    /* layout flex */
+    justify-content: center;          /* centraliza horizontalmente */
+    align-items: center;              /* centraliza verticalmente */
+    width: 100%;                      /* largura total */
+    max-width: 22rem;                 /* largura máxima */
+    margin-bottom: var(--spacing-sm); /* margem inferior */
 }
 
 .success-personagem img {
-    position: relative;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    transform: none;
+    position: relative;               /* posição relativa */
+    width: 100%;                      /* largura total */
+    height: auto;                     /* mantém proporção */
+    object-fit: contain;              /* ajusta sem cortar */
+    transform: none;                  /* sem transformação adicional */
 }
 
 .success-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 7.5rem;
-    height: 7.5rem;
+    display: flex;                    /* layout flex */
+    align-items: center;              /* centraliza verticalmente */
+    justify-content: center;          /* centraliza horizontalmente */
+    width: 7.5rem;                    /* largura do ícone */
+    height: 7.5rem;                   /* altura do ícone */
 }
 
 .success-icon img {
-    width: 6rem;
-    height: 6rem;
-    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+    width: 6rem;                      /* largura da imagem */
+    height: 6rem;                     /* altura da imagem */
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%); /* cor aplicada */
 }
 
 .success-content .botao {
-    margin-top: var(--spacing-sm);
-    z-index: 10;
+    margin-top: var(--spacing-sm);    /* espaço acima do botão */
+    z-index: 10;                      /* mantém acima de outros itens */
 }
 
+
+/* Estilização das mensagens de erro do formulário */
+#formulario span {
+    color: #ff0000;             /* Vermelho Neon principal */
+    font-size: 0.80rem;         /* Tamanho delicado */
+    font-weight: 800;           /* Negrito para destacar o brilho */
+    display: block;             /* Força o erro a ocupar uma linha nova */
+    min-height: 1rem;           /* Reserva o espaço mesmo se estiver vazio */
+    margin-top: 0.2rem;         /* Afasta um pouquinho do input */
+    margin-bottom: 0.5rem;      /* Afasta do próximo label */
+    text-shadow: 0 0 2px #ff0055, 0 0 10px #ff0055; /* O efeito de luz neon */
+    transition: var(--transition-default); /* Aplica uma animação suave */
+}
+
+/* RESPONSIVIDADE */
 @media screen and (max-width: 1024px) {
     .section-container {
-        padding: var(--spacing-lg);
-        margin-bottom: 2rem;
+        padding: var(--spacing-lg);   /* reduz padding em tamanhos médios */
+        margin-bottom: 2rem;          /* reduz margem inferior */
     }
-    
-    .hero-content h1 { font-size: var(--text-2xl); }
-    .about-content h2, .projects-title, .contact-header h2 { font-size: var(--text-xl); }
-    .hero-content p, .about-content p { font-size: var(--text-sm); }
+
+    .hero-content h1 {
+        font-size: var(--text-2xl);  /* título menor em telas médias */
+    }
+
+    .about-content h2,
+    .projects-title,
+    .contact-header h2 {
+        font-size: var(--text-xl);   /* títulos menores */
+    }
+
+    .hero-content p,
+    .about-content p {
+        font-size: var(--text-sm);   /* texto menor em telas médias */
+    }
+
+    .projects-swiper {
+        position: relative;          /* posicionamento relativo para o swiper */
+    }
 
     .project-card {
-        min-height: 28rem; /* Altura fixa para manter o alinhamento no carrossel */
-    }
-    
-    .swiper-button-next, .swiper-button-prev {
-        display: none;
+        min-height: 28rem;           /* altura fixa para alinhamento */
     }
 
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: flex;               /* mostra botões do swiper */
+        align-items: center;         /* centraliza ícone */
+        justify-content: center;     /* centraliza ícone */
+        top: 50%;                    /* posiciona verticalmente */
+    }
+
+    .swiper-button-next {
+        right: 0;                    /* botão direito */
+    }
+
+    .swiper-button-prev {
+        left: 0;                     /* botão esquerdo */
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 2rem;             /* tamanho do ícone menor */
+        color: var(--neon-green);     /* ícone verde */
+    }
+
+    .about-content {
+        text-align: center;          /* centraliza texto */
+        align-items: center;         /* centraliza elementos */
+    }
+
+    .about-buttons-data {
+        display: flex;               /* layout em linha */
+        flex-direction: column;      /* empilha em telas médias */
+        align-items: center;         /* centraliza */
+        gap: var(--spacing-md);      /* espaçamento entre elementos */
+    }
+
+    .about-buttons-data .buttons-container {
+        display: flex;               /* layout dos botões em linha */
+        justify-content: center;     /* centraliza grupo de botões */
+        flex-wrap: wrap;             /* permite quebra */
+        gap: var(--spacing-sm);      /* espaçamento entre botões */
+        margin: 0 auto;              /* centraliza horizontalmente */
+    }
+
+    .data-container {
+        display: flex;               /* layout em linha */
+        justify-content: center;     /* centraliza dados */
+        gap: var(--spacing-lg);      /* espaçamento entre itens */
+        width: 100%;                 /* largura total */
+    }
+
+    .data-item {
+        align-items: center;         /* centraliza itens dos dados */
+    }
+
+    .data-number,
+    .data-label {
+        text-align: center;          /* centraliza texto */
+    }
 }
 
 @media (max-width: 850px) {
     .contact-container {
-        flex-direction: column;
-        align-items: center; 
-        text-align: center;
-        gap: var(--spacing-lg);
+        flex-direction: column;       /* empilha a seção de contato */
+        align-items: center;          /* centraliza conteúdo */
+        text-align: center;           /* centraliza texto */
+        gap: var(--spacing-lg);       /* espaçamento entre blocos */
     }
-    
+
     .contact-image-box {
-        display: block;     
-        flex: none;           
-        max-width: 15rem;      
-        margin: 0 auto;
+        display: block;               /* exibe caixa de imagem como bloco */
+        flex: none;                   /* remove comportamento flex */
+        max-width: 15rem;             /* largura menor para imagem */
+        margin: 0 auto;               /* centraliza horizontalmente */
     }
 
     #formulario {
-        max-width: 100%;
+        max-width: 100%;              /* formulário ocupa toda a largura disponível */
     }
 }
 
 @media (max-width: 768px) {
-
     .hero-container,
     .about-container,
     .projects-wrapper,
     .contact-container {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
+        flex-direction: column;       /* empilha seções */
+        text-align: center;           /* centraliza texto */
+        align-items: center;          /* centraliza conteúdos */
     }
+
     .hero-image,
     .about-image,
     .projects-personagem-fixed,
     .contact-image-box {
-        max-width: 18rem;
-        margin: 0 auto;
+        max-width: 18rem;             /* largura reduzida */
+        margin: 0 auto;               /* centraliza horizontalmente */
     }
 
     .menu-content {
-        flex-direction: column;
-        gap: var(--spacing-sm);
+        flex-direction: column;       /* menu empilhado */
+        gap: var(--spacing-sm);        /* espaçamento entre itens */
     }
 
     .menu-list {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: wrap;              /* quebra itens do menu */
+        justify-content: center;      /* centraliza itens */
     }
 
     .success-content {
-        padding: var(--spacing-md);
+        padding: var(--spacing-md);   /* espaçamento interno */
     }
 
     .success-content h1 {
-        font-size: var(--text-xl);
+        font-size: var(--text-xl);    /* título menor em telas menores */
     }
 
     .success-content h2 {
-        font-size: var(--text-base);
+        font-size: var(--text-base);  /* subtítulo menor */
     }
 
     .projects-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .projects-personagem-fixed {
-        flex: none;
-        width: 100%;
-        max-width: 18rem;
-        margin: 0 auto;
+        flex-direction: column;       /* empilha conteúdo de projetos */
+        align-items: center;          /* centraliza conteúdo */
+        gap: 0;                       /* remove gap lateral */
     }
 
     .projects-content-box {
-        width: 100%;
+        width: 100%;                  /* ocupa largura total */
+        margin-bottom: 0;             /* remove margem inferior */
+        display: flex;                /* layout flex */
+        flex-direction: column;       /* empilha conteúdo */
     }
 
-    .project-card {
-        min-height: auto;
-        padding: var(--spacing-md);
+    .projects-personagem-fixed {
+        flex: none;                   /* remove flex fixo */
+        width: 100%;                  /* largura total */
+        max-width: 18rem;             /* largura máxima menor */
+        margin: -5rem auto 0 auto;    /* posiciona com margem negativa */
+        position: relative;           /* posição relativa para sobreposição */
+        z-index: 2;                   /* mantém acima */
     }
 
     .projects-title {
-        text-align: center;
+        text-align: center;           /* centraliza o título */
+    }
+
+    .projects-swiper {
+        width: 100%;                  /* ocupa largura total */
+        height: auto;                 /* altura automática */
+        overflow: hidden;             /* evita overflow */
+        padding-bottom: 0;            /* remove padding inferior */
+        margin-bottom: 0;             /* remove margem inferior */
+    }
+
+    .swiper {
+        height: auto;                 /* altura automática */
+    }
+
+    .swiper-wrapper {
+        height: auto;                 /* altura automática */
+        align-items: flex-start;      /* alinha slides no topo */
+    }
+
+    .swiper-slide {
+        width: 100%;                  /* ocupa largura total */
+        flex-shrink: 0;               /* evita encolhimento */
+        height: auto;                 /* altura automática */
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;                /* esconde botões do swiper */
+    }
+
+    .swiper-pagination {
+        position: relative;           /* posicionamento normal */
+        margin-top: 0.5rem;           /* espaço acima */
+        bottom: 0;                    /* remove deslocamento */
+    }
+
+    .project-card {
+        min-height: unset;            /* remove altura mínima */
+        height: auto;                 /* altura automática */
+        padding: var(--spacing-sm);   /* padding reduzido */
+        margin-bottom: 0;             /* remove margem */
+    }
+
+    .project-image {
+        height: 6rem;                 /* altura menor da imagem */
+    }
+
+    .project-image img {
+        width: 5rem;                  /* largura menor da imagem */
     }
 
     .about-buttons-data {
-        display: block; /* remove flex completamente */
-        width: 100%;
-        margin-top: 1rem;
+        display: block;               /* exibe como bloco */
+        width: 100%;                  /* ocupa toda a largura */
+        margin-top: 1rem;             /* espaço acima */
     }
 
-    /* BOTÕES */
     .about-buttons-data .buttons-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.75rem;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .about-buttons-data .buttons-container a {
-        width: 100%;
-        text-align: center;
+        display: grid;                /* exibe em grid */
+        grid-template-columns: 1fr 1fr; /* duas colunas */
+        gap: 0.75rem;                 /* espaçamento entre botões */
+        width: 100%;                  /* ocupa toda a largura */
+        margin-bottom: 1rem;          /* espaço abaixo */
     }
 
     .about-buttons-data .data-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.75rem;
-        width: 100%;
+        display: grid;                /* exibe dados em grid */
+        grid-template-columns: 1fr 1fr; /* duas colunas */
+        gap: 0.75rem;                 /* espaçamento entre itens */
+        width: 100%;                  /* ocupa toda a largura */
     }
 
-    
     .about-buttons-data .buttons-container,
     .about-buttons-data .data-container {
-        justify-content: unset;
-        align-items: unset;
+        justify-content: unset;       /* reset do alinhamento */
+        align-items: unset;           /* reset do alinhamento */
     }
-
 }
 
 @media (max-width: 500px) {
-
     header {
-        height: auto;
-        padding: 0.5rem 0;
+        height: auto;                 /* altura automática */
+        padding: 0.5rem 0;            /* padding reduzido */
     }
 
     .menu-content {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
+        flex-direction: column;       /* empilha itens do menu */
+        align-items: center;          /* centraliza horizontalmente */
+        justify-content: center;      /* centraliza itens */
+        gap: 0.5rem;                  /* espaçamento reduzido */
     }
 
     #titulo {
-        text-align: center;
-        font-size: 1rem;
-        width: 100%;
+        text-align: center;           /* centraliza título */
+        font-size: 1rem;              /* tamanho menor */
+        width: 100%;                  /* largura total */
     }
 
     .menu-list {
-        display: flex;
-        justify-content: center;
-        flex-wrap: nowrap; /* impede quebrar linha */
-        gap: 0.3rem;
-        width: 100%;
-        }
-
-    .menu-list a {
-        font-size: 0.75rem;
-        padding: 0.2rem 0.3rem;
+        display: flex;                /* mantém lista em linha */
+        justify-content: center;      /* centraliza itens */
+        flex-wrap: nowrap;            /* impede quebra de linha */
+        gap: 0.3rem;                  /* espaçamento reduzido */
+        width: 100%;                  /* ocupa largura total */
     }
 
-     /* HERO */
+    .menu-list a {
+        font-size: 0.75rem;           /* texto menor */
+        padding: 0.2rem 0.3rem;       /* padding reduzido */
+    }
+
     .hero-container {
-    margin-top: 1rem;
+        margin-top: 1rem;             /* espaço acima do hero */
     }
 
     .hero-content {
-        align-items: center;
-        text-align: center;
+        align-items: center;          /* centraliza horizontalmente */
+        text-align: center;           /* centraliza texto */
     }
 
     .hero-content h1 {
-        font-size: 1.6rem;
+        font-size: 1.6rem;            /* título menor */
     }
 
     .hero-content span {
-        font-size: 0.9rem;
+        font-size: 0.9rem;            /* texto menor */
     }
 
     .buttons-container {
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+        justify-content: center;      /* centraliza botões */
+        align-items: center;          /* centraliza verticalmente */
+        width: 100%;                  /* ocupa toda a largura */
     }
 
-    /* SOBRE */
     .about-content {
-        text-align: center;
-        align-items: center;
+        text-align: center;           /* centraliza texto */
+        align-items: center;          /* centraliza conteúdo */
     }
 
     .about-content p {
-        text-align: center;
+        text-align: center;           /* centraliza parágrafo */
     }
 
     .about-buttons-data {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column;       /* empilha botões e dados */
+        align-items: center;          /* centraliza itens */
     }
 
     .data-container {
-        justify-content: center;
-    }
-
-    .data-container {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    /* CONTAINER GERAL */
-    .section-container {
-        padding: var(--spacing-md);
-    }
-
-    /* EVITA ESTOURO */
-    body {
-        overflow-x: hidden;
+        justify-content: center;      /* centraliza dados */
+        flex-wrap: wrap;              /* permite quebra de itens */
     }
 }
 
 @media screen and (max-width: 480px) {
-
     main {
-        padding-top: 1rem;
-    }
-    
-    .section-container {
-        padding: var(--spacing-md);
-        margin-bottom: var(--spacing-lg);
+        padding-top: 1rem;            /* reduz padding superior */
     }
 
-    .hero-content h1 { font-size: 1.8rem; }
-    .about-content h2, .projects-title, .contact-header h2 { font-size: 1.5rem; }
-    
+    .section-container {
+        padding: var(--spacing-md);   /* padding menor */
+        margin-bottom: var(--spacing-lg); /* margem inferior menor */
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;            /* título menor em telas muito pequenas */
+    }
+
+    .about-content h2,
+    .projects-title,
+    .contact-header h2 {
+        font-size: 1.5rem;            /* títulos menores */
+    }
+
     header #titulo {
-        font-size: 0.9rem;
+        font-size: 0.9rem;            /* título ainda menor */
     }
 
     .hero-container {
-        gap: var(--spacing-md);
+        gap: var(--spacing-md);       /* gap menor */
     }
 
     .hero-content .buttons-container {
-        flex-direction: column;
-        width: 100%;
+        flex-direction: column;       /* botões empilhados */
+        width: 100%;                  /* ocupa largura total */
     }
 
     .hero-content .buttons-container .botao,
     .hero-content .buttons-container .botao-outline {
-        width: 100%;
+        width: 100%;                  /* botões ocupam largura total */
     }
 
     .hero-image {
-        max-width: 100%;
-        height: auto;
+        max-width: 100%;              /* imagem ocupa largura total */
+        height: auto;                 /* altura automática */
     }
-
 
     .about-buttons-data .buttons-container,
     .about-buttons-data .data-container {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
+        grid-template-columns: 1fr;   /* uma coluna em telas pequenas */
+        gap: 0.5rem;                  /* espaçamento reduzido */
     }
 
-    .data-number { font-size: var(--text-lg); }
-    .data-label { font-size: var(--text-sm); }
+    .data-number {
+        font-size: var(--text-lg);    /* número menor */
+    }
+
+    .data-label {
+        font-size: var(--text-sm);    /* rótulo menor */
+    }
 
     .project-card {
-        padding: var(--spacing-sm);
-        min-height: auto;
+        padding: var(--spacing-sm);   /* padding menor */
+        min-height: auto;             /* altura automática */
     }
 
     .project-image {
-        height: 6rem;
+        height: 6rem;                 /* altura reduzida */
     }
 
-    .project-content h3 { font-size: var(--text-base); }
+    .project-content h3 {
+        font-size: var(--text-base);  /* título do projeto menor */
+    }
 
     .social-container {
-        flex-wrap: wrap;
-        gap: var(--spacing-sm);
+        flex-wrap: wrap;              /* quebra ícones quando necessário */
+        gap: var(--spacing-sm);       /* espaçamento reduzido */
     }
 
     .social-icon {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.5rem;                /* ícones menores */
+        height: 2.5rem;               /* ícones menores */
     }
 
     #formulario {
-        padding: var(--spacing-xs);
-        gap: 0.3rem;
+        padding: var(--spacing-xs);   /* padding mínimo */
+        gap: 0.3rem;                  /* gap reduzido */
     }
 
-    #formulario label { font-size: var(--text-base); }
-    
-    #formulario input, #formulario textarea {
-        padding: 0.5rem; 
+    #formulario label {
+        font-size: var(--text-base);  /* label tamanho base */
+    }
+
+    #formulario input,
+    #formulario textarea {
+        padding: 0.5rem;              /* padding maior para campos */
     }
 
     footer {
-        padding: 1.5rem;
-        font-size: var(--text-sm);
+        padding: 1.5rem;              /* padding menor no rodapé */
+        font-size: var(--text-sm);    /* texto menor */
     }
 
     .success-icon {
-        width: 5rem;
-        height: 5rem;
+        width: 5rem;                  /* ícone menor */
+        height: 5rem;                 /* ícone menor */
     }
 }
+
