@@ -824,6 +824,10 @@ footer {
     transition: var(--transition-default); /* Aplica uma animação suave */
 }
 
+/* Remover o fundo branco do autocompletar e manter o estilo neon */
+
+
+
 /* RESPONSIVIDADE */
 @media screen and (max-width: 1024px) {
     .section-container {
@@ -1149,6 +1153,16 @@ footer {
         justify-content: center;      /* centraliza dados */
         flex-wrap: wrap;              /* permite quebra de itens */
     }
+
+     .project-card {
+        padding: var(--spacing-sm);   /* padding menor */
+        min-height: 26.5rem;             /* igualizando alturas */
+    }
+
+    .swiper-wrapper {
+    height: auto; /* altura */
+    align-items: flex-start; /* Slides alinhados no topo */
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1210,7 +1224,7 @@ footer {
 
     .project-card {
         padding: var(--spacing-sm);   /* padding menor */
-        min-height: auto;             /* altura automática */
+        min-height: 26.5rem;             /* igualizando alturas */
     }
 
     .project-image {
@@ -1253,6 +1267,64 @@ footer {
     .success-icon {
         width: 5rem;                  /* ícone menor */
         height: 5rem;                 /* ícone menor */
+    }
+
+    .swiper-wrapper {
+        height: auto; /*altura */
+        align-items: flex-start; /* Slides alinhados no topo */
+    }
+}
+
+@media screen and (max-width: 375px) {
+
+    /* Ajusta o espaçamento da seção para otimizar a área útil em telas pequenas */
+    .section-container {
+        padding: 1rem;                /* Define preenchimento interno de 1rem */
+        margin-bottom: 1.5rem;         /* Define margem inferior para separação */
+    }
+
+    /* Padroniza o tamanho e o alinhamento dos títulos das seções */
+    .projects-title,
+    .about-content h2,
+    .contact-header h2 {
+        font-size: 1.3rem;            /* Reduz o tamanho da fonte para evitar quebras */
+        text-align: center;           /* Centraliza o texto horizontalmente */
+    }
+
+    /* Configuração estrutural do card para manter o alinhamento e tamanho */
+    .project-card {
+        padding: 1rem;                /* Espaçamento interno reduzido */
+        min-height: 28rem;            /* Garante altura mínima igual para todos os cards */
+        height: 100%;                 /* Força o card a preencher a altura do slide */
+        display: flex;                /* Ativa o layout flexível */
+        flex-direction: column;       /* Organiza os elementos em coluna */
+        justify-content: space-between; /* Distribui o espaço entre os elementos internos */
+        box-sizing: border-box;       /* Inclui padding e borda no cálculo da largura */
+    }
+
+    /* Organização das tags de tecnologia dentro do card */
+    .project-tags {
+        gap: 0.3rem;                  /* Espaçamento mínimo entre as etiquetas */
+        justify-content: center;      /* Centraliza as tags horizontalmente */
+    }
+
+    /* Estilização individual das etiquetas (tags) */
+    .tag {
+        font-size: 0.7rem;            /* Diminui o texto para caber em telas estreitas */
+        padding: 0.2rem 0.5rem;       /* Reduz o preenchimento interno da tag */
+    }
+
+    /* Alinhamento dos botões de ação na base do card */
+    .project-buttons {
+        margin-top: auto;             /* Empurra os botões para o final do container */
+        gap: 0.5rem;                  /* Espaço entre os botões de GitHub e Deploy */
+    }
+
+    /* Garante que o carrossel utilize toda a largura disponível */
+    .projects-swiper {
+        width: 100%;                  /* Ocupa 100% da largura do container pai */
+        max-width: 100%;              /* Remove qualquer limitação de largura anterior */
+        margin: 0 auto;               /* Centraliza o Swiper na tela */
     }
 }
 
