@@ -823,9 +823,27 @@ footer {
     text-shadow: 0 0 2px #ff0055, 0 0 10px #ff0055; /* O efeito de luz neon */
     transition: var(--transition-default); /* Aplica uma animação suave */
 }
+/* Ajuste do Autocompletar para harmonizar com o fundo escuro do formulário */
+#formulario input:-webkit-autofill,
+#formulario input:-webkit-autofill:hover, 
+#formulario input:-webkit-autofill:focus,
+#formulario input:-webkit-autofill:active,
+#formulario textarea:-webkit-autofill,
+#formulario textarea:-webkit-autofill:hover,
+#formulario textarea:-webkit-autofill:focus,
+#formulario textarea:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px #1a1517 inset;  /* Substitui o branco por uma sombra interna em um tom cinza*/
+    -webkit-text-fill-color: #ffffff; /* Garante que o texto preenchido permaneça branco conforme seu estilo */
+    caret-color: #808080; /* Mantém sua barrinha de digitação cinza visível */
+    transition: background-color 5000s ease-in-out 0s; /* Truque para impedir que o navegador tente mudar a cor novamente */
+}
 
-/* Remover o fundo branco do autocompletar e manter o estilo neon */
-
+/* Garante que a borda neon continue brilhando mesmo com autocompletar */
+#formulario input:-webkit-autofill:focus,
+#formulario textarea:-webkit-autofill:focus {
+    border-color: var(--neon-green) ;
+    box-shadow: 0 0 10px var(--neon-green), inset 0 0 0px 1000px #1a1517;
+}
 
 
 /* RESPONSIVIDADE */
