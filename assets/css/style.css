@@ -1346,3 +1346,18 @@ footer {
     }
 }
 
+@media screen and (max-width: 393px) {
+    .project-card {
+        min-height: 27rem; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
+    }
+
+    .project-content p {
+        font-size: 0.88rem;
+        line-height: 1.5;
+    }
+}
+
